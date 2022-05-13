@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Product Application</title>
+</head>
+
+<body>
+    <div class="panel panel-success text-center">
+        <div class="panel-heading">
+            <h2>Product List</h2>
+        </div>
+        <div class="panel-body">
+            <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0"
+                width="100%">
+
+                <thead>
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Category</th>
+                        <th>Product Price</th>
+                        <th>Product Type</th>
+                        <th>Vendor Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>{{product.productId}}</td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCategory}}</td>
+                        <td>{{product.productPrice}}</td>
+                        <td>{{product.productType}}</td>
+                        <td>{{product.vendor.vendorName}}</td>
+                        <td><button style='margin-right:16px' (click)="deleteProductDetails(product.productId)"
+                                class="btn btn-danger">Delete</button>
+                            <button style='margin-right:16px' (click)="updateProductDetails(product.productId)"
+                                class="btn btn-success" style="margin-left: 10px">Edit details</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <button style='margin-right:16px' (click)="saveProductDetails()"
+            class="btn btn-success" style="margin-left: 10px">ADD Product</button>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
